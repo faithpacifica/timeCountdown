@@ -8,13 +8,15 @@ const leftedDays = document.querySelector('#leftedDays');
 
 
 setInterval(() => {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
     let date = new Date();
+    console.log(date);
     const targetDate = new Date('2024-01-01');
     leftedDays.textContent = Math.ceil((date.getTime() - targetDate.getTime())/(1000*3600*24))  ;
-    console.log(targetDate);
 
-    day.textContent = (date.getDay() <10 ? "0" : "") + date.getDay();
-    month.textContent = (date.getMonth() <10 ? "0" : "") +date.getMonth();
+    day.textContent = (date.getDate() <10 ? "0" : "") + date.getDate();
+    month.textContent = monthNames[(date.getMonth())] ;
     year.textContent = date.getFullYear();
 
     hours.textContent = (date.getHours() <10 ? "0" : "") + date.getHours();
